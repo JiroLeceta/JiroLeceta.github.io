@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JL Tech Solutions | Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <input type="checkbox" id="menu-toggle">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="header-left">
+                <label for="menu-toggle" class="menu-btn">☰</label>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="brand">
+                    <img src="logo.png" alt="JL Tech Logo">
+                    <span>JL Tech Solutions</span>
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+                <a href="login.html" title="Login"><i class="fas fa-user"></i></a>
+            </div>
+        </header>
+
+        <!-- ===== SIDE NAV ===== -->
+        <nav class="side-nav">
+            <label for="menu-toggle" class="close-btn">← Back</label>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+        </nav>
+
+        <!-- ===== MAIN ===== -->
+        <main>
+            <h2>Create Account</h2>
+
+            <form onsubmit="signupSuccess(event)">
+                <label>First Name</label>
+                <input type="text" id="firstName" required>
+
+                <label>Last Name</label>
+                <input type="text" id="lastName" required>
+
+                <label>Email</label>
+                <input type="email" id="email" required>
+
+                <label>Password</label>
+                <input type="password" id="password" required>
+
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" required>
+
+                <label>Mobile Number</label>
+                <input type="tel" id="mobile" required>
+
+                <label>Home Address</label>
+                <textarea id="address" required></textarea>
+
+                <button type="submit">Register</button>
+            </form>
+
+
+            <p style="margin-top: 1.2rem; text-align: center;">
+                Already have an account?
+                <a href="login.html" class="back-login-link">Go back to Login</a>
+            </p>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="JL Tech Logo">
+                    <span>JL Tech Solutions</span>
+                </div>
+                <div class="footer-info">
+                    <p>© 2026 JL Tech Solutions</p>
+                    <p>Email: jltech@email.com | Phone: 0912-345-6789</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

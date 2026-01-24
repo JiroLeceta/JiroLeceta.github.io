@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JL Tech Solutions | Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="page">
+
+        <input type="checkbox" id="menu-toggle">
+
+        <header class="header">
+            <div class="header-left">
+                <label for="menu-toggle" class="menu-btn">☰</label>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="brand">
+                    <img src="logo.png" alt="JL Tech Logo">
+                    <span>JL Tech Solutions</span>
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+                <a href="login.html" title="Login"><i class="fas fa-user"></i></a>
+            </div>
+        </header>
+
+        <!-- SLIDE MENU -->
+        <nav class="side-nav">
+            <label for="menu-toggle" class="close-btn">← Back</label>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" id="loginLink">Login</a>
+            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+        </nav>
+
+        <main>
+            <h2>User Profile</h2>
+
+            <div class="profile-info">
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Mobile:</strong> <span id="mobile"></span></p>
+                <p><strong>Address:</strong> <span id="address"></span></p>
+            </div>
+
+            <button onclick="logout()">Logout</button>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="JL Tech Logo">
+                    <span>JL Tech Solutions</span>
+                </div>
+                <div class="footer-info">
+                    <p>© 2026 JL Tech Solutions</p>
+                    <p>Email: jltech@email.com | Phone: 0912-345-6789</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
