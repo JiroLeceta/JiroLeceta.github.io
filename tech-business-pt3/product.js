@@ -1,5 +1,5 @@
 class ShoppingCart {
-    #items = new Map(); // Private field using ES2022+
+    #items = new Map(); 
     
     
     addItem(product, quantity = 1) {
