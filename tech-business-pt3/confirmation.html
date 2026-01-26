@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JL Tech Solutions | Order Confirmation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <input type="checkbox" id="menu-toggle">
+
+        <header class="header">
+            <div class="header-left">
+                <label for="menu-toggle" class="menu-btn">☰</label>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="brand">
+                    <img src="logo.png" alt="JL Tech Logo">
+                    <span>JL Tech Solutions</span>
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="cart.html" title="Shopping Cart" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+                <a href="login.html" title="Login"><i class="fas fa-user"></i></a>
+            </div>
+        </header>
+
+        <!-- SLIDE MENU -->
+        <nav class="side-nav">
+            <label for="menu-toggle" class="close-btn">← Back</label>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Shopping Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" id="loginLink">Login</a>
+            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+        </nav>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main>
+            <div class="confirmation-container">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>Order Confirmed!</h1>
+                <p class="confirmation-message">Thank you for your purchase. Your order has been successfully placed.</p>
+
+                <!-- E-Receipt -->
+                <div class="receipt">
+                    <div class="receipt-header">
+                        <h2>E-Receipt</h2>
+                        <div class="receipt-logo">
+                            <img src="logo.png" alt="JL Tech Logo">
+                            <span>JL Tech Solutions</span>
+                        </div>
+                    </div>
+
+                    <div class="receipt-info">
+                        <div class="info-row">
+                            <span class="label">Order Number:</span>
+                            <span class="value" id="orderNumber">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Date:</span>
+                            <span class="value" id="orderDate">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Payment Method:</span>
+                            <span class="value" id="paymentMethod">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Delivery Option:</span>
+                            <span class="value" id="deliveryMethod">-</span>
+                        </div>
+                    </div>
+
+                    <div class="receipt-delivery">
+                        <h3>Delivery Details</h3>
+                        <p id="recipientName">-</p>
+                        <p id="recipientPhone">-</p>
+                        <p id="recipientAddress">-</p>
+                    </div>
+
+                    <div class="receipt-items">
+                        <h3>Order Items</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="receiptItems">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="receipt-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="receiptSubtotal">₱0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping:</span>
+                            <span id="receiptShipping">₱0.00</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total Amount:</span>
+                            <span id="receiptTotal">₱0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="receipt-footer">
+                        <p>Thank you for shopping with JL Tech Solutions!</p>
+                        <p>For inquiries, contact us at jltech@email.com or 0912-345-6789</p>
+                    </div>
+                </div>
+
+                <div class="confirmation-actions">
+                    <button onclick="window.print()" class="print-btn">
+                        <i class="fas fa-print"></i> Print Receipt
+                    </button>
+                    <a href="products.html" class="continue-btn">Continue Shopping</a>
+                    <a href="index.html" class="home-btn">Back to Home</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="JL Tech Logo">
+                    <span>JL Tech Solutions</span>
+                </div>
+                <div class="footer-info">
+                    <p>© 2026 JL Tech Solutions</p>
+                    <p>Email: jltech@email.com | Phone: 0912-345-6789</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+
+</html>

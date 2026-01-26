@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>JL Tech Solutions | Profile</title>
@@ -8,71 +7,197 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-
 <body>
-    <div class="page">
+<div class="page">
 
-        <input type="checkbox" id="menu-toggle">
+    <input type="checkbox" id="menu-toggle">
 
-        <header class="header">
-            <div class="header-left">
-                <label for="menu-toggle" class="menu-btn">☰</label>
-            </div>
+    <header class="header">
+        <div class="header-left">
+            <label for="menu-toggle" class="menu-btn">☰</label>
+        </div>
 
-            <div class="header-center">
-                <a href="index.html" class="brand">
-                    <img src="logo.png" alt="JL Tech Logo">
-                    <span>JL Tech Solutions</span>
-                </a>
-            </div>
+        <div class="header-center">
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="JL Tech Logo">
+                <span>JL Tech Solutions</span>
+            </a>
+        </div>
 
-            <div class="header-right">
-                <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
-                <a href="login.html" title="Login"><i class="fas fa-user"></i></a>
-            </div>
-        </header>
+        <div class="header-right">
+            <a href="cart.html" title="Shopping Cart" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+            <a href="products.html" title="Products"><i class="fas fa-shopping-bag"></i></a>
+            <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+            <a href="login.html" title="Login"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
 
-        <!-- SLIDE MENU -->
-        <nav class="side-nav">
-            <label for="menu-toggle" class="close-btn">← Back</label>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html" id="loginLink">Login</a>
-            <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
-        </nav>
+    <!-- SLIDE MENU -->
+    <nav class="side-nav">
+        <label for="menu-toggle" class="close-btn">← Back</label>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" id="loginLink">Login</a>
+        <a href="profile.html" id="profileLink" style="display:none;">Profile</a>
+    </nav>
 
-        <main>
-            <h2>User Profile</h2>
-
-            <div class="profile-info">
-                <p><strong>Name:</strong> <span id="name"></span></p>
-                <p><strong>Email:</strong> <span id="email"></span></p>
-                <p><strong>Mobile:</strong> <span id="mobile"></span></p>
-                <p><strong>Address:</strong> <span id="address"></span></p>
-            </div>
-
-            <button onclick="logout()">Logout</button>
-        </main>
-
-        <!-- ===== FOOTER ===== -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.png" alt="JL Tech Logo">
-                    <span>JL Tech Solutions</span>
+    <main>
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
                 </div>
-                <div class="footer-info">
-                    <p>© 2026 JL Tech Solutions</p>
-                    <p>Email: jltech@email.com | Phone: 0912-345-6789</p>
+                <div class="profile-welcome">
+                    <h1>Welcome back, <span id="welcomeName">User</span>!</h1>
+                    <p class="profile-subtitle">Manage your account and view your information</p>
                 </div>
             </div>
-        </footer>
 
-    </div>
+            <!-- Profile Cards Grid -->
+            <div class="profile-grid">
+                <!-- Personal Information Card -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-id-card"></i> Personal Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span class="info-label">Full Name:</span>
+                            <span class="info-value" id="name">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email Address:</span>
+                            <span class="info-value" id="email">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Mobile Number:</span>
+                            <span class="info-value" id="mobile">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Home Address:</span>
+                            <span class="info-value" id="address">-</span>
+                        </div>
+                    </div>
+                </div>
 
-    <script src="script.js"></script>
-    <script src="product.js"></script>
+                <!-- Account Activity Card -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Account Activity</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-item">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <div>
+                                <p class="activity-title">Last Login</p>
+                                <p class="activity-time" id="lastLogin">Just now</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <p class="activity-title">Member Since</p>
+                                <p class="activity-time" id="memberSince">-</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div>
+                                <p class="activity-title">Total Orders</p>
+                                <p class="activity-time">0 orders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Card -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                    </div>
+                    <div class="card-body">
+                        <a href="products.html" class="quick-action-btn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Browse Products</span>
+                        </a>
+                        <a href="cart.html" class="quick-action-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>View Cart</span>
+                        </a>
+                        <a href="contact.html" class="quick-action-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Support</span>
+                        </a>
+                        <button onclick="logout()" class="quick-action-btn logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Security Card -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-shield-alt"></i> Account Security</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="security-item">
+                            <i class="fas fa-check-circle security-check"></i>
+                            <div>
+                                <p class="security-title">Email Verified</p>
+                                <p class="security-desc">Your email is verified</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-check-circle security-check"></i>
+                            <div>
+                                <p class="security-title">Password Protected</p>
+                                <p class="security-desc">Your account is secure</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="JL Tech Logo">
+                <span>JL Tech Solutions</span>
+            </div>
+            <div class="footer-info">
+                <p>© 2026 JL Tech Solutions</p>
+                <p>Email: jltech@email.com | Phone: 0912-345-6789</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+<script src="product.js"></script>
+<script>
+    // Set last login time and member since
+    document.addEventListener('DOMContentLoaded', function() {
+        const now = new Date();
+        document.getElementById('lastLogin').textContent = now.toLocaleString();
+        
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user && user.firstName) {
+            document.getElementById('welcomeName').textContent = user.firstName;
+            // Set member since to today (in real app, this would be signup date)
+            document.getElementById('memberSince').textContent = now.toLocaleDateString();
+        }
+    });
+</script>
 </body>
-
 </html>
