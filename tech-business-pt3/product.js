@@ -98,12 +98,11 @@ const products = [
     }
 ];
 
-/* ====== ES2025 FEATURE: PRIVATE CLASS FIELDS ====== */
-// Private fields (#) - Module 3: Cannot be accessed outside the class
+
 class ShoppingCart {
     #items = {}; // Private field - encapsulated data
     #lastOrder = null; // Private field for order storage
-    
+
     addItem(product, quantity = 1) {
         if (this.#items[product.id]) {
             // Item exists, update quantity
@@ -115,13 +114,13 @@ class ShoppingCart {
         this.saveToLocalStorage();
         this.updateCartBadge();
     }
-    
+
     removeItem(productId) {
         delete this.#items[productId];
         this.saveToLocalStorage();
         this.updateCartBadge();
     }
-    
+
     updateQuantity(productId, quantity) {
         if (quantity <= 0) {
             this.removeItem(productId);
@@ -131,7 +130,7 @@ class ShoppingCart {
         }
         this.updateCartBadge();
     }
-    
+
     getItems() {
         const itemsArray = [];
         for (let id in this.#items) {
@@ -139,7 +138,7 @@ class ShoppingCart {
         }
         return itemsArray;
     }
-    
+
     getItemCount() {
         let count = 0;
         for (let id in this.#items) {
@@ -147,7 +146,7 @@ class ShoppingCart {
         }
         return count;
     }
-    
+
     getSubtotal() {
         let total = 0;
         for (let id in this.#items) {
@@ -155,14 +154,14 @@ class ShoppingCart {
         }
         return total;
     }
-    
+
     clear() {
         this.#items = {};
         this.saveToLocalStorage();
         this.updateCartBadge();
     }
-    
-    // Save to localStorage (workaround for browser storage)
+
+    // Save to localStorage 
     saveToLocalStorage() {
         try {
             localStorage.setItem('jltech_cart', JSON.stringify(this.#items));
@@ -170,7 +169,7 @@ class ShoppingCart {
             console.log('Storage not available');
         }
     }
-    
+
     // Load from localStorage
     loadFromLocalStorage() {
         try {
@@ -182,14 +181,14 @@ class ShoppingCart {
             console.log('Storage not available');
         }
     }
-    
+
     updateCartBadge() {
         const badge = document.getElementById('cartBadge');
         if (badge) {
             badge.textContent = this.getItemCount();
         }
     }
-    
+
     // Store order in private field and localStorage
     saveOrder(orderData) {
         this.#lastOrder = orderData;
@@ -199,12 +198,11 @@ class ShoppingCart {
             console.log('Storage not available');
         }
     }
-    
+
     getLastOrder() {
         if (this.#lastOrder) {
             return this.#lastOrder;
         }
-        // Try to load from localStorage
         try {
             const orderData = localStorage.getItem('jltech_lastOrder');
             if (orderData) {
@@ -225,9 +223,9 @@ const cart = new ShoppingCart();
 function loadProducts(filterCategory = 'all') {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
-    
+
     let filteredProducts = [];
-    
+
     if (filterCategory === 'all') {
         filteredProducts = products;
     } else {
@@ -237,7 +235,7 @@ function loadProducts(filterCategory = 'all') {
             }
         }
     }
-    
+
     let html = '';
     for (let i = 0; i < filteredProducts.length; i++) {
         const product = filteredProducts[i];
@@ -254,7 +252,7 @@ function loadProducts(filterCategory = 'all') {
             </div>
         `;
     }
-    
+
     grid.innerHTML = html;
 }
 
@@ -272,7 +270,7 @@ function addToCart(productId) {
             break;
         }
     }
-    
+
     if (product) {
         cart.addItem(product);
         showNotification(`${product.name} added to cart!`);
@@ -284,7 +282,7 @@ function showNotification(message) {
     notification.className = 'notification';
     notification.textContent = message;
     document.body.appendChild(notification);
-    
+
     setTimeout(() => notification.classList.add('show'), 10);
     setTimeout(() => {
         notification.classList.remove('show');
@@ -296,9 +294,9 @@ function showNotification(message) {
 function loadCartPage() {
     const cartItemsDiv = document.getElementById('cartItems');
     if (!cartItemsDiv) return;
-    
+
     const items = cart.getItems();
-    
+
     if (items.length === 0) {
         cartItemsDiv.innerHTML = `
             <div class="empty-cart">
@@ -310,7 +308,7 @@ function loadCartPage() {
         updateCartSummary(0, 0);
         return;
     }
-    
+
     let html = '';
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
@@ -336,9 +334,9 @@ function loadCartPage() {
             </div>
         `;
     }
-    
+
     cartItemsDiv.innerHTML = html;
-    
+
     const subtotal = cart.getSubtotal();
     const shipping = subtotal > 0 ? 100 : 0;
     updateCartSummary(subtotal, shipping);
@@ -358,7 +356,7 @@ function updateCartSummary(subtotal, shipping) {
     const subtotalEl = document.getElementById('subtotal');
     const shippingEl = document.getElementById('shipping');
     const totalEl = document.getElementById('total');
-    
+
     if (subtotalEl) subtotalEl.textContent = `₱${subtotal.toLocaleString()}`;
     if (shippingEl) shippingEl.textContent = `₱${shipping.toLocaleString()}`;
     if (totalEl) totalEl.textContent = `₱${(subtotal + shipping).toLocaleString()}`;
@@ -376,14 +374,14 @@ function proceedToCheckout() {
 function loadCheckoutPage() {
     const items = cart.getItems();
     const checkoutItemsDiv = document.getElementById('checkoutItems');
-    
+
     if (!checkoutItemsDiv) return;
-    
+
     if (items.length === 0) {
         window.location.href = 'cart.html';
         return;
     }
-    
+
     let html = '';
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
@@ -398,7 +396,7 @@ function loadCheckoutPage() {
             </div>
         `;
     }
-    
+
     checkoutItemsDiv.innerHTML = html;
     updateCheckoutSummary();
 }
@@ -413,11 +411,11 @@ function updateCheckoutSummary() {
     const shippingCosts = { standard: 100, express: 250, sameday: 500 };
     const shipping = shippingCosts[deliveryOption];
     const subtotal = cart.getSubtotal();
-    
+
     const subtotalEl = document.getElementById('checkoutSubtotal');
     const shippingEl = document.getElementById('checkoutShipping');
     const totalEl = document.getElementById('checkoutTotal');
-    
+
     if (subtotalEl) subtotalEl.textContent = `₱${subtotal.toLocaleString()}`;
     if (shippingEl) shippingEl.textContent = `₱${shipping.toLocaleString()}`;
     if (totalEl) totalEl.textContent = `₱${(subtotal + shipping).toLocaleString()}`;
@@ -425,11 +423,11 @@ function updateCheckoutSummary() {
 
 function completeOrder(event) {
     event.preventDefault();
-    
+
     const deliveryOption = document.getElementById('deliveryOption').value;
     const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
     const shippingCosts = { standard: 100, express: 250, sameday: 500 };
-    
+
     const orderData = {
         orderNumber: 'ORD-' + Date.now(),
         date: new Date().toLocaleString(),
@@ -443,8 +441,7 @@ function completeOrder(event) {
         deliveryOption: deliveryOption,
         paymentMethod: paymentMethod
     };
-    
-    // Store in private field instead of sessionStorage
+
     cart.saveOrder(orderData);
     cart.clear();
     window.location.href = 'confirmation.html';
@@ -453,16 +450,16 @@ function completeOrder(event) {
 /* ====== CONFIRMATION PAGE FUNCTIONS ====== */
 function loadConfirmationPage() {
     const orderData = cart.getLastOrder();
-    
+
     if (!orderData) {
         alert('No order found. Please place an order first.');
         window.location.href = 'index.html';
         return;
     }
-    
+
     document.getElementById('orderNumber').textContent = orderData.orderNumber;
     document.getElementById('orderDate').textContent = orderData.date;
-    
+
     const paymentLabels = {
         cod: 'Cash on Delivery',
         card: 'Credit/Debit Card',
@@ -470,18 +467,18 @@ function loadConfirmationPage() {
         bank: 'Bank Transfer'
     };
     document.getElementById('paymentMethod').textContent = paymentLabels[orderData.paymentMethod];
-    
+
     const deliveryLabels = {
         standard: 'Standard Delivery (3-5 days)',
         express: 'Express Delivery (1-2 days)',
         sameday: 'Same Day Delivery'
     };
     document.getElementById('deliveryMethod').textContent = deliveryLabels[orderData.deliveryOption];
-    
+
     document.getElementById('recipientName').textContent = orderData.deliveryName;
     document.getElementById('recipientPhone').textContent = orderData.deliveryPhone;
     document.getElementById('recipientAddress').textContent = orderData.deliveryAddress;
-    
+
     const receiptItemsTable = document.getElementById('receiptItems');
     let tableHtml = '';
     for (let i = 0; i < orderData.items.length; i++) {
@@ -496,7 +493,7 @@ function loadConfirmationPage() {
         `;
     }
     receiptItemsTable.innerHTML = tableHtml;
-    
+
     document.getElementById('receiptSubtotal').textContent = `₱${orderData.subtotal.toLocaleString()}`;
     document.getElementById('receiptShipping').textContent = `₱${orderData.shipping.toLocaleString()}`;
     document.getElementById('receiptTotal').textContent = `₱${orderData.total.toLocaleString()}`;
@@ -507,20 +504,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load cart from localStorage first
     cart.loadFromLocalStorage();
     cart.updateCartBadge();
-    
+
     // Load appropriate page content
     if (document.getElementById('productsGrid')) {
         loadProducts();
     }
-    
+
     if (document.getElementById('cartItems')) {
         loadCartPage();
     }
-    
+
     if (document.getElementById('checkoutItems')) {
         loadCheckoutPage();
     }
-    
+
     if (document.getElementById('orderNumber')) {
         loadConfirmationPage();
     }
