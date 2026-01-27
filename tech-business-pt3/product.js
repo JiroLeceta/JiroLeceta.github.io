@@ -1,28 +1,44 @@
 /* ====== PRODUCTS DATA ====== */
 const products = [
     {
-        id: 1,
-        name: "Business Laptop Pro",
-        category: "hardware",
-        price: 45000,
-        image: "💻",
-        description: "High-performance laptop for business professionals"
+        id: 7,
+        name: "Website Development",
+        category: "services",
+        price: 25000,
+        image: "🌐",
+        description: "Professional website development service"
     },
     {
-        id: 2,
-        name: "Wireless Mouse",
-        category: "hardware",
-        price: 1200,
-        image: "🖱️",
-        description: "Ergonomic wireless mouse with precision tracking"
+        id: 8,
+        name: "IT Support Package",
+        category: "services",
+        price: 8000,
+        image: "🔧",
+        description: "Monthly IT support and maintenance package"
     },
     {
-        id: 3,
-        name: "Mechanical Keyboard",
-        category: "hardware",
-        price: 3500,
-        image: "⌨️",
-        description: "Professional mechanical keyboard with RGB lighting"
+        id: 9,
+        name: "Network Setup",
+        category: "services",
+        price: 15000,
+        image: "📡",
+        description: "Complete network infrastructure setup"
+    },
+    {
+        id: 12,
+        name: "Data Recovery",
+        category: "services",
+        price: 5000,
+        image: "💾",
+        description: "Professional data recovery service"
+    },
+    {
+        id: 11,
+        name: "Design Software",
+        category: "software",
+        price: 7500,
+        image: "🎨",
+        description: "Professional graphic design software license"
     },
     {
         id: 4,
@@ -48,29 +64,29 @@ const products = [
         image: "☁️",
         description: "Secure cloud storage solution - 1TB capacity"
     },
-    {
-        id: 7,
-        name: "Website Development",
-        category: "services",
-        price: 25000,
-        image: "🌐",
-        description: "Professional website development service"
+     {
+        id: 1,
+        name: "Business Laptop Pro",
+        category: "hardware",
+        price: 45000,
+        image: "💻",
+        description: "High-performance laptop for business professionals"
     },
     {
-        id: 8,
-        name: "IT Support Package",
-        category: "services",
-        price: 8000,
-        image: "🔧",
-        description: "Monthly IT support and maintenance package"
+        id: 2,
+        name: "Wireless Mouse",
+        category: "hardware",
+        price: 1200,
+        image: "🖱️",
+        description: "Ergonomic wireless mouse with precision tracking"
     },
     {
-        id: 9,
-        name: "Network Setup",
-        category: "services",
-        price: 15000,
-        image: "📡",
-        description: "Complete network infrastructure setup"
+        id: 3,
+        name: "Mechanical Keyboard",
+        category: "hardware",
+        price: 3500,
+        image: "⌨️",
+        description: "Professional mechanical keyboard with RGB lighting"
     },
     {
         id: 10,
@@ -80,25 +96,7 @@ const products = [
         image: "🖥️",
         description: "27-inch Full HD professional monitor"
     },
-    {
-        id: 11,
-        name: "Design Software",
-        category: "software",
-        price: 7500,
-        image: "🎨",
-        description: "Professional graphic design software license"
-    },
-    {
-        id: 12,
-        name: "Data Recovery",
-        category: "services",
-        price: 5000,
-        image: "💾",
-        description: "Professional data recovery service"
-    }
 ];
-
-
 class ShoppingCart {
     #items = {}; // Private field - encapsulated data
     #lastOrder = null; // Private field for order storage
