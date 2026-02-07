@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
                 <div className="header-left">
                     <label htmlFor="menu-toggle" className="menu-btn">☰</label>
                     <Link to="/" className="brand">
-                        <img src="/logo.png" alt="JL Tech Logo" />
+                      <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="JL Tech Logo" />
                         <span>JL TECH SOLUTIONS</span>
                     </Link>
                 </div>

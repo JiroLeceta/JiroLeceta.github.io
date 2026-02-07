@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jmlwebshop/static/css/main.98e16301.css",
+    "main.js": "/jmlwebshop/static/js/main.e160ebe4.js",
+    "index.html": "/jmlwebshop/index.html",
+    "main.98e16301.css.map": "/jmlwebshop/static/css/main.98e16301.css.map",
+    "main.e160ebe4.js.map": "/jmlwebshop/static/js/main.e160ebe4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98e16301.css",
+    "static/js/main.e160ebe4.js"
+  ]
+}
