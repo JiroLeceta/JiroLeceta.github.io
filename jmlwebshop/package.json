@@ -2,7 +2,7 @@
   "name": "jltech-solutions-react",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://JiroLeceta.github.io/jmlwebshop",
+  "homepage": "https://jiroleceta.github.io/jmlwebshop",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
