@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
             <footer>
                 <div className="footer-content">
                     <div className="footer-logo">
-                        <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="JL Tech Logo" /> //testing for footer logo
+                        <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="JL Tech Logo" /> 
                         <span>JL Tech Solutions</span>
                     </div>
                     <div className="footer-info">
