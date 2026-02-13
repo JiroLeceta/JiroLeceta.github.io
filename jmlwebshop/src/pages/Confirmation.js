@@ -49,7 +49,7 @@ const Confirmation = () => {
                     <div className="receipt-header">
                         <h2>E-Receipt</h2>
                         <div className="receipt-logo">
-                            <img src="/logo.png" alt="JL Tech Logo" />
+                            <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="JL Tech Logo" />
                             <span>JL Tech Solutions</span>
                         </div>
                     </div>
